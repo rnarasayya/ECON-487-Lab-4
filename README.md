@@ -7,8 +7,8 @@ lasso_v1 <- cv.glmnet(x, y, alpha=1)
 lasso_v1_cv <- glmnet(x, y, alpha=1)
 As an alternative to defining products in a dataframe, turning that into a matrix then passing that matrix to glmnet, you can cut out the middle man with this.  
 X <- model.matrix(formula, df_RHS)
-# Note that df_RHS is a dataframe of just the features you’d like # to use as predictors of Y (this should include lagged price)
-# Now pass X to glmnet; documentation
+Note that df_RHS is a dataframe of just the features you’d like # to use as predictors of Y (this should include lagged price)
+Now pass X to glmnet; documentation
 
 In addition to the variables in the original dataframe, try to create tons of new features that you think could plausibly be predictive of quantity sold.  This could include lagged prices, interactions of several features, etc.
 c.	Investigate the coefficients of the cross validated LASSO model.  Code from class is here:
@@ -22,7 +22,7 @@ lasso_v1 <- glmnet(x, y, alpha=1)
 plot(lasso_v1)
 coef(lasso_v1, s=lasso_v1$lambda.min)
 
-# Now ready for cross validation version of the object
+Now ready for cross validation version of the object
 cvfit <- cv.glmnet(x, y, alpha=1)
 #Results
 plot(cvfit)
